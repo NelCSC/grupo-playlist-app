@@ -1,0 +1,391 @@
+/* ==================================== */
+/* 1. DJ THEME BASE STYLES & TYPOGRAPHY */
+/* ==================================== */
+
+/* Importar fuentes de Google Fonts (opcional, pero mejora el look) */
+/* Agrega esta línea en tu archivo index.html o en el <head> de tu App */
+/* <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet"> */
+
+:root {
+    /* Paleta de Colores DJ */
+    --color-bg-dark: #121212; /* Fondo oscuro principal */
+    --color-card-dark: #1E1E1E; /* Fondo de las tarjetas */
+    --color-neon-blue: #00FFFF; /* Azul eléctrico */
+    --color-neon-orange: #FF9900;  /* Naranja vibrante para acciones */
+    --color-text-light: #F0F0F0; /* Texto claro */
+    --color-text-accent: #B0B0B0; /* Texto secundario */
+}
+
+body {
+    background: radial-gradient(circle at center, #1E1E1E, #000000); /* Fondo con ligero degradado */
+    color: var(--color-text-light);
+    font-family: 'Montserrat', sans-serif;
+    min-height: 100vh;
+}
+
+.app-container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 30px 20px;
+}
+
+/* ==================================== */
+/* 2. HEADERS Y TEXTOS */
+/* ==================================== */
+
+h1 {
+    text-align: center;
+    color: var(--color-neon-blue);
+    font-size: 2.5em;
+    font-weight: 700;
+    text-shadow: 0 0 10px rgba(0, 255, 255, 0.6); /* Sombra de neón */
+    margin-bottom: 5px;
+}
+
+.subtitle {
+    text-align: center;
+    color: var(--color-text-accent);
+    margin-bottom: 40px;
+    font-size: 1.1em;
+}
+
+/* ==================================== */
+/* 3. TARJETAS DE PARTICIPANTES */
+/* ==================================== */
+
+.participants-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    margin-bottom: 30px;
+}
+
+.participant-card {
+    flex: 1 1 calc(50% - 30px);
+    background-color: var(--color-card-dark);
+    border: 1px solid rgba(0, 255, 255, 0.1);
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.5), 0 0 5px var(--color-neon-blue) inset; /* Sombra profunda y brillo interno */
+}
+
+.participant-card h3 {
+    color: var(--color-neon-blue);
+    border-bottom: 2px solid var(--color-neon-blue);
+    padding-bottom: 10px;
+    margin-bottom: 15px;
+}
+
+/* ==================================== */
+/* 4. INPUTS Y GÉNEROS */
+/* ==================================== */
+
+.input-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: 700;
+    color: var(--color-text-light);
+}
+
+.input-group input[type="number"] {
+    width: 80px;
+    padding: 8px;
+    background-color: #333;
+    border: 1px solid var(--color-neon-blue);
+    border-radius: 5px;
+    color: var(--color-text-light);
+    margin-bottom: 15px;
+    transition: all 0.3s;
+}
+
+.input-group input[type="number"]:focus {
+    box-shadow: 0 0 8px var(--color-neon-blue);
+    outline: none;
+}
+
+.genre-tags {
+    margin-top: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.genre-tag {
+    background-color: #333;
+    color: var(--color-text-light);
+    border: 1px solid var(--color-text-accent);
+    padding: 8px 15px;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: all 0.2s;
+    font-size: 0.9em;
+}
+
+.genre-tag:hover {
+    border-color: var(--color-neon-blue);
+}
+
+.genre-tag.selected {
+    background-color: var(--color-neon-blue);
+    color: var(--color-bg-dark); /* Texto oscuro sobre el color neón */
+    border-color: var(--color-neon-blue);
+    box-shadow: 0 0 10px rgba(0, 255, 255, 0.8);
+    font-weight: 700;
+}
+
+/* ==================================== */
+/* 5. BOTONES DE ACCIÓN */
+/* ==================================== */
+
+.action-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    margin: 40px 0;
+}
+
+.add-btn, .generate-btn, .remove-btn {
+    padding: 12px 25px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    border: none;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+}
+
+/* Botón: AGREGAR (verde para añadir) */
+.add-btn {
+    background-color: #5cb85c;
+    color: var(--color-bg-dark);
+}
+
+.add-btn:hover {
+    background-color: #4CAF50;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(76, 175, 80, 0.4);
+}
+
+/* Botón: GENERAR (Naranja neón para la acción principal) */
+.generate-btn {
+    background-color: var(--color-neon-orange);
+    color: var(--color-bg-dark);
+    box-shadow: 0 0 15px rgba(255, 153, 0, 0.6);
+}
+
+.generate-btn:hover {
+    background-color: #FF7700;
+    transform: scale(1.05); /* Ligeramente más grande */
+    box-shadow: 0 0 20px rgba(255, 153, 0, 0.9);
+}
+
+.generate-btn:disabled {
+    background-color: #555;
+    color: #999;
+    cursor: not-allowed;
+    box-shadow: none;
+}
+
+/* Botón: ELIMINAR */
+.remove-btn {
+    background-color: #d9534f;
+    color: white;
+    margin-top: 15px;
+    width: 100%;
+}
+
+/* ==================================== */
+/* 6. MENSAJES Y REPRODUCTOR */
+/* ==================================== */
+
+.error-message {
+    color: #FF5555; /* Rojo de error */
+    text-align: center;
+    font-weight: bold;
+    margin-top: 20px;
+    padding: 10px;
+    background: #300000;
+    border: 1px solid #FF5555;
+    border-radius: 5px;
+}
+
+.player-section {
+    margin-top: 50px;
+    text-align: center;
+}
+
+.player-section h2 {
+    color: var(--color-neon-orange);
+    text-shadow: 0 0 5px rgba(255, 153, 0, 0.6);
+    margin-bottom: 20px;
+}
+
+/* Estructura de dos columnas para Video + Lista */
+.video-and-list-container {
+    display: flex;
+    gap: 25px; /* Espacio entre el video y la lista */
+    margin-top: 30px;
+    text-align: left; /* Asegurar que el contenido interno se alinee a la izquierda */
+}
+
+/* Columna Izquierda: Reproductor */
+.player-column {
+    flex: 2; /* Ocupa 2/3 del espacio */
+    min-width: 0;
+}
+
+/* Asegurar responsividad del reproductor */
+.youtube-player-container {
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+    /* Relación de aspecto 16:9 */
+    padding-top: 56.25%; 
+    margin: 0; /* Remover margin 20px 0 anterior */
+}
+
+.youtube-player-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+/* ==================================== */
+/* 7. LISTA DE REPRODUCCIÓN LATERAL */
+/* ==================================== */
+
+/* Columna Derecha: Lista de Reproducción */
+.playlist-column {
+    flex: 1; /* Ocupa 1/3 del espacio */
+    min-width: 300px; /* Asegura un ancho mínimo para la lista */
+    max-height: 500px; /* Limita la altura de la lista */
+    overflow-y: auto; /* Permite desplazamiento si la lista es larga */
+    background-color: var(--color-card-dark);
+    border-radius: 8px;
+    padding: 10px;
+    border: 1px solid rgba(0, 255, 255, 0.1);
+}
+
+.playlist-column h3 {
+    margin-bottom: 10px;
+}
+
+.playlist-item {
+    display: flex;
+    padding: 8px;
+    margin-bottom: 5px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    font-size: 0.9em;
+}
+
+.playlist-item:hover {
+    background-color: #333333; /* Color más claro al pasar el ratón */
+}
+
+.playlist-item.playing {
+    background-color: var(--color-neon-orange); /* Naranja para la canción actual */
+    color: var(--color-bg-dark);
+    font-weight: bold;
+    box-shadow: 0 0 5px rgba(255, 153, 0, 0.5);
+}
+
+.playlist-item-index {
+    margin-right: 10px;
+    color: var(--color-neon-blue);
+    min-width: 20px;
+    text-align: center;
+}
+
+
+/* ==================================== */
+/* 8. RESPONSIVIDAD (MÓVILES) */
+/* ==================================== */
+
+@media (max-width: 1024px) {
+    /* En pantallas medianas y pequeñas, apila las columnas */
+    .video-and-list-container {
+        flex-direction: column; 
+    }
+    
+    .player-column {
+        min-width: auto;
+    }
+
+    .playlist-column {
+        max-height: 300px; /* Lista más corta en móvil */
+        min-width: auto;
+    }
+}
+
+@media (max-width: 768px) {
+    .participant-card {
+        flex: 1 1 100%; /* Una tarjeta por fila en móvil */
+    }
+
+    .action-buttons {
+        flex-direction: column;
+        gap: 15px;
+    }
+    
+    .add-btn, .generate-btn {
+        width: 100%;
+    }
+}
+
+
+/* ==================================== */
+/* 9. CONTROLES DE REPRODUCCIÓN (NUEVO) */
+/* ==================================== */
+
+.playback-controls {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin: 20px 0 30px 0;
+}
+
+.control-btn {
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
+    border: 2px solid var(--color-neon-blue); /* Borde neón */
+    background-color: var(--color-card-dark);
+    color: var(--color-neon-blue);
+    transition: all 0.2s ease;
+    text-transform: uppercase;
+}
+
+.control-btn:hover {
+    background-color: var(--color-neon-blue);
+    color: var(--color-bg-dark); /* Texto oscuro al pasar el ratón */
+    box-shadow: 0 0 10px rgba(0, 255, 255, 0.6);
+    transform: scale(1.05);
+}
+
+.play-pause-btn {
+    background-color: var(--color-neon-orange); /* Naranja para el control principal */
+    color: var(--color-bg-dark);
+    border-color: var(--color-neon-orange);
+}
+
+.play-pause-btn:hover {
+    background-color: #FF7700;
+    box-shadow: 0 0 10px rgba(255, 153, 0, 0.8);
+}
+
+/* Ajuste de responsividad para que los controles se vean bien en móviles */
+@media (max-width: 600px) {
+    .playback-controls {
+        gap: 10px;
+        flex-wrap: wrap;
+    }
+    .control-btn {
+        padding: 8px 15px;
+        font-size: 0.9em;
+    }
+}
