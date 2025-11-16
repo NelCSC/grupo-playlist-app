@@ -17,7 +17,7 @@ interface PlaylistResponse {
   playlist: string[]; // Esperamos que 'playlist' sea un array de strings (IDs de video)
 }
 
-const API_URL = 'https://grupo-playlist-app-backend.onrender.com/generate-playlist';
+const API_URL = 'https://grupo-playlist-app-backend.onrender.com/api/generate-playlist';
 
 function App() {
   const [participants, setParticipants] = useState<Participant[]>([{ id: Date.now(), age: 25, genres: [] }]);
